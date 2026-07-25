@@ -1,12 +1,11 @@
-> Yavuz Selim:
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gün Spor Kulübü | Sakarya Okçuluk Eğitimi & Antrenman</title>
-    <meta name="description" content="Sakarya Adapazarı'nda profesyonel okçuluk eğitimi. Gün Spor Kulübü ile okçuluk sporunu keşfedin.">
-    <meta name="keywords" content="Gün Spor Kulübü, Sakarya Okçuluk, Adapazarı Okçuluk, Okçuluk Kursu, Emre Gündüz, Beyzanur Gündüz">
+    <meta name="description" content="Sakarya Adapazarı'nda profesyonel okçuluk eğitimi Gün Spor Kulübü ile okçuluk sporunu keşfedin.">
+    <meta name="keywords" content="Gün Spor Kulübü, Sakarya Okçuluk, Adapazarı Okçuluk, Okçuluk Kursu, Emre Gündüz, Beyzanur Gündüz, Spor Masörü Sakarya">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,6 +25,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -75,6 +75,7 @@
             color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
+            transition: 0.3s;
         }
 
         nav a:hover {
@@ -118,6 +119,9 @@
             border-radius: 25px;
             text-decoration: none;
             font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         .btn:hover {
@@ -148,8 +152,185 @@
             margin: 10px auto 0;
         }
 
-> Yavuz Selim:
-/* İletişim Kartları (Genişlik artırıldı, numara sığmama sorunu çözüldü) */
+        /* Antrenörler Bölümü */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .trainer-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid #333;
+            overflow: hidden;
+            text-align: center;
+            padding: 25px 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .trainer-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            margin: 0 auto 15px;
+        }
+
+        .trainer-card h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .trainer-card .role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .trainer-card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .trainer-card a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Yarışmalar Bölümü */
+        .competitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .comp-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .comp-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .comp-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .comp-info {
+            padding: 20px;
+        }
+
+        .comp-date {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .comp-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .comp-badge {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid var(--gold);
+            margin-top: 10px;
+        }
+
+        /* SSS Bölümü */
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item h3 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Kayıt Formu */
+        .form-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #121212;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        /* İletişim Kartları & Harita */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -175,13 +356,22 @@
             font-size: 1.2rem;
         }
 
-        .card p {
-            white-space: nowrap; /* Numaraların tek satırda kalmasını sağlar */
-        }
-
         .card a {
             color: var(--gold);
             text-decoration: none;
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gold);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
         }
 
         /* Sosyal Medya */
@@ -205,6 +395,31 @@
             font-weight: 600;
         }
 
+        /* WhatsApp Sabit Butonu */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -215,20 +430,40 @@
             border-top: 1px solid #222;
         }
 
-        /* Mobil Uyum */
+        /* MOBİL UYUM */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+                padding: 15px 3%;
             }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 12px;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+                background-color: rgba(212, 175, 55, 0.1);
+                border-radius: 6px;
+                display: inline-block;
+            }
+
             .hero h2 {
                 font-size: 1.8rem;
             }
-            .grid-container {
+
+            .grid-container,
+            .trainers-grid,
+            .competitions-grid {
                 grid-template-columns: 1fr;
             }
-            .card p {
-                white-space: normal;
+
+            .form-container {
+                padding: 20px 15px;
             }
         }
     </style>
@@ -243,6 +478,10 @@
         <nav>
             <ul>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#antrenorler">Antrenörlerimiz</a></li>
+                <li><a href="#yarismalar">Yarışmalarımız</a></li>
+                <li><a href="#sss">S.S.S.</a></li>
+                <li><a href="#kayit">Ön Kayıt</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
@@ -250,9 +489,9 @@
 
     <div class="hero">
         <img src="logo.jpg" alt="Gün Spor Kulübü Logo">
-        <h2>Hedefe Odaklan, Geleceğe Isabet Et!</h2>
+        <h2>Hedefe Odaklan, Geleceğe İsabet Et!</h2>
         <p>Sakarya Adapazarı'nda modern okçuluk sporunu profesyonel antrenörlerimiz eşliğinde keşfedin.</p>
-        <a href="#iletisim" class="btn">Bize Ulaşın</a>
+        <a href="#kayit" class="btn">Hemen Kayıt Ol</a>
     </div>
 
     <section id="hakkimizda">
@@ -260,6 +499,122 @@
         <p style="text-align: center; color: var(--text-muted);">
             Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz.
         </p>
+    </section>
+
+    <section id="antrenorler">
+        <h2 class="section-title">Antrenörlerimiz</h2>
+        <div class="trainers-grid">
+            
+            <div class="trainer-card">
+                <img src="emre-gunduz.jpg" alt="Emre Gündüz" class="trainer-img">
+                <h3>Emre Gündüz</h3>
+                <div class="role">Baş Antrenör & Spor Masörü</div>
+                <p>Okçuluk teknikleri, profesyonel sporcu yetiştirme.</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:05432653442">0543 265 34 42</a></p>
+            </div>
+
+            <div class="trainer-card">
+                <img src="beyzanur-gunduz.jpg" alt="Beyzanur Gündüz" class="trainer-img">
+                <h3>Beyzanur Gündüz</h3>
+                <div class="role">Antrenör</div>
+                <p>Temel okçuluk eğitimi, odaklanma teknikleri ve genç yeteneklerin keşfi uzmanı.</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:05534631096">0553 463 10 96</a></p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="yarismalar">
+        <h2 class="section-title">Katıldığımız Yarışmalar & Dereceler</h2>
+        <div class="competitions-grid">
+
+            <div class="comp-card">
+                <img src="yarisma1.jpg" alt="Yarışma 1" class="comp-img">
+                <div class="comp-info">
+                    <div class="comp-date"><i class="fa-regular fa-calendar"></i> Tarih Eklenecek</div>
+                    <h3 class="comp-title">Yarışma 1</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Yarışma hakkında kısa detay ve açıklama metni buraya gelecek.</p>
+                    <span class="comp-badge"><i class="fa-solid fa-trophy"></i> Derece / Başarı</span>
+                </div>
+            </div>
+
+            <div class="comp-card">
+                <img src="yarisma2.jpg" alt="Yarışma 2" class="comp-img">
+                <div class="comp-info">
+                    <div class="comp-date"><i class="fa-regular fa-calendar"></i> Tarih Eklenecek</div>
+                    <h3 class="comp-title">Yarışma 2</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Yarışma hakkında kısa detay ve açıklama metni buraya gelecek.</p>
+                    <span class="comp-badge"><i class="fa-solid fa-medal"></i> Derece / Başarı</span>
+                </div>
+            </div>
+
+            <div class="comp-card">
+                <img src="yarisma3.jpg" alt="Yarışma 3" class="comp-img">
+                <div class="comp-info">
+                    <div class="comp-date"><i class="fa-regular fa-calendar"></i> Tarih Eklenecek</div>
+                    <h3 class="comp-title">Yarışma 3</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Yarışma hakkında kısa detay ve açıklama metni buraya gelecek.</p>
+                    <span class="comp-badge"><i class="fa-solid fa-award"></i> Derece / Başarı</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sss">
+        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+        
+        <div class="faq-item">
+            <h3><i class="fa-solid fa-circle-question"></i> Okçuluk eğitimine kaç yaşında başlanabilir?</h3>
+            <p>Okçuluk sporuna genellikle 7-8 yaşından itibaren başlanabilir. Odaklanma becerisi ve fiziksel gelişime göre her yaş grubuna özel antrenman programı uygulanır.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3><i class="fa-solid fa-circle-question"></i> Ekipmanları kendimiz mi almalıyız?</h3>
+            <p>Başlangıç aşamasında gerekli tüm yay, ok ve koruyucu ekipmanlar kulübümüz tarafından sağlanmaktadır.</p>
+        </div>
+
+        
+    </section>
+
+    <section id="kayit">
+        <h2 class="section-title">Ön Kayıt Formu</h2>
+        <div class="form-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="ad-soyad">Adınız Soyadınız</label>
+                    <input type="text" id="ad-soyad" name="ad_soyad" placeholder="Örn: Ahmet Yılmaz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefon">Telefon Numaranız</label>
+                    <input type="tel" id="telefon" name="telefon" placeholder="05XX XXX XX XX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="yas">Yaşınız</label>
+                    <input type="number" id="yas" name="yas" placeholder="Örn: 15" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="seviye">Okçuluk Deneyiminiz</label>
+                    <select id="seviye" name="seviye">
+                        <option value="baslangic">İlk Defa Başlayacağım (Başlangıç)</option>
+                        <option value="orta">Orta Seviye</option>
+                        <option value="ileri">İleri Seviye / Lisanslı Sporcu</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mesaj">Not / Eklemek İstedikleriniz (Opsiyonel)</label>
+                    <textarea id="mesaj" name="mesaj" rows="4" placeholder="Sorularınız varsa belirtebilirsiniz..."></textarea>
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn" style="width: 100%;">Başvuruyu Gönder</button>
+                </div>
+            </form>
+        </div>
     </section>
 
     <section id="iletisim">
@@ -274,18 +629,21 @@
 
             <div class="card">
                 <i class="fa-solid fa-phone"></i>
-                <h3>Antrenörlerimiz</h3>
+                <h3>Bize Ulaşın</h3>
                 <p><strong>Emre Gündüz:</strong> <a href="tel:05432653442">0543 265 34 42</a></p>
                 <p><strong>Beyzanur Gündüz:</strong> <a href="tel:05534631096">0553 463 10 96</a></p>
             </div>
 
-> Yavuz Selim:
-<div class="card">
+            <div class="card">
                 <i class="fa-solid fa-envelope"></i>
                 <h3>E-posta</h3>
                 <p><a href="mailto:gunspor54@gmail.com">gunspor54@gmail.com</a></p>
             </div>
 
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.657805216393!2d30.3980!3d40.7730!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ2JzIyLjgiTiAzMMKwMjMnNTI4IkU!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <h3 style="text-align: center; margin-top: 40px; color: var(--gold);">Sosyal Medyada Bizi Takip Edin</h3>
@@ -298,6 +656,10 @@
             </a>
         </div>
     </section>
+
+    <a href="https://wa.me/905432653442?text=Merhaba,%20okçuluk%20kursu%20hakkında%20bilgi%20almak%20istiyorum." class="whatsapp-float" target="_blank" title="WhatsApp İle İletişime Geçin">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <footer>
         <p>&copy; 2026 Gün Spor Kulübü. Tüm hakkı saklıdır.</p>
