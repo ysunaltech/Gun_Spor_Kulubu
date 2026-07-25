@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gün Spor Kulübü | Sakarya Okçuluk Eğitimi & Antrenman</title>
-    <meta name="description" content="Sakarya Adapazarı'nda profesyonel okçuluk eğitimi Gün Spor Kulübü ile okçuluk sporunu keşfedin.">
+    <meta name="description" content="Sakarya Adapazarı'nda profesyonel okçuluk eğitimi ve spor masajı hizmeti. Gün Spor Kulübü ile okçuluk sporunu keşfedin.">
     <meta name="keywords" content="Gün Spor Kulübü, Sakarya Okçuluk, Adapazarı Okçuluk, Okçuluk Kursu, Emre Gündüz, Beyzanur Gündüz, Spor Masörü Sakarya">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <style>
         :root {
@@ -18,6 +21,22 @@
             --gold-hover: #f3cf55;
             --text-color: #e0e0e0;
             --text-muted: #a0a0a0;
+            --header-bg: rgba(18, 18, 18, 0.95);
+            --input-bg: #121212;
+            --border-color: #333;
+        }
+
+        /* Açık Mod (Light Mode) Tanımları */
+        body.light-mode {
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --gold: #b8860b;
+            --gold-hover: #d4af37;
+            --text-color: #222222;
+            --text-muted: #666666;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --input-bg: #f0f0f0;
+            --border-color: #e0e0e0;
         }
 
         * {
@@ -26,6 +45,7 @@
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -36,7 +56,7 @@
 
         /* Header / Navbar */
         header {
-            background-color: rgba(18, 18, 18, 0.95);
+            background-color: var(--header-bg);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -65,10 +85,16 @@
             letter-spacing: 1px;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a {
@@ -82,12 +108,38 @@
             color: var(--gold);
         }
 
+        /* Üst Kontrol Butonları (Dil & Tema) */
+        .controls-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .toggle-btn:hover {
+            background-color: var(--gold);
+            color: #000;
+        }
+
         /* Hero Bölümü */
         .hero {
             padding: 80px 5% 60px;
             text-align: center;
-            background: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
-            border-bottom: 1px solid #333;
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero img {
@@ -162,7 +214,7 @@
         .trainer-card {
             background-color: var(--card-bg);
             border-radius: 12px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             overflow: hidden;
             text-align: center;
             padding: 25px 20px;
@@ -207,6 +259,47 @@
             font-weight: 600;
         }
 
+        /* Medya Galeri Bölümü */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Sanal Tur Stilleri */
+        .virtual-tour-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #panorama {
+            width: 100%;
+            height: 100%;
+        }
+
         /* Yarışmalar Bölümü */
         .competitions-grid {
             display: grid;
@@ -217,7 +310,7 @@
         .comp-card {
             background-color: var(--card-bg);
             border-radius: 12px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             overflow: hidden;
             transition: transform 0.3s ease;
         }
@@ -251,7 +344,6 @@
         .comp-title {
             font-size: 1.2rem;
             margin-bottom: 10px;
-            color: #fff;
         }
 
         .comp-badge {
@@ -269,7 +361,7 @@
         /* SSS Bölümü */
         .faq-item {
             background-color: var(--card-bg);
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 15px;
@@ -294,7 +386,7 @@
             background-color: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             max-width: 700px;
             margin: 0 auto;
         }
@@ -316,8 +408,8 @@
         .form-group textarea {
             width: 100%;
             padding: 12px 15px;
-            background-color: #121212;
-            border: 1px solid #333;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             color: var(--text-color);
             font-size: 1rem;
@@ -330,7 +422,7 @@
             border-color: var(--gold);
         }
 
-        /* İletişim Kartları & Harita */
+        /* İletişim & Harita */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -341,7 +433,7 @@
             background-color: var(--card-bg);
             padding: 25px 20px;
             border-radius: 10px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             text-align: center;
         }
 
@@ -374,12 +466,54 @@
             border: 0;
         }
 
-        /* Sosyal Medya */
+        /* Sosyal Medya Akışı */
+        .social-feed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-post {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 180px;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-post .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .social-post:hover .overlay {
+            opacity: 1;
+        }
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .social-btn {
@@ -424,10 +558,10 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #0a0a0a;
+            background-color: var(--card-bg);
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid #222;
+            border-top: 1px solid var(--border-color);
         }
 
         /* MOBİL UYUM */
@@ -438,18 +572,22 @@
                 padding: 15px 3%;
             }
 
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 8px 12px;
+                gap: 8px 10px;
             }
 
             nav a {
                 font-size: 0.85rem;
-                padding: 6px 10px;
+                padding: 5px 8px;
                 background-color: rgba(212, 175, 55, 0.1);
                 border-radius: 6px;
-                display: inline-block;
             }
 
             .hero h2 {
@@ -465,6 +603,10 @@
             .form-container {
                 padding: 20px 15px;
             }
+
+            .virtual-tour-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -477,55 +619,87 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#antrenorler">Antrenörlerimiz</a></li>
-                <li><a href="#yarismalar">Yarışmalarımız</a></li>
-                <li><a href="#sss">S.S.S.</a></li>
-                <li><a href="#kayit">Ön Kayıt</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="#hakkimizda" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+                <li><a href="#antrenorler" data-tr="Antrenörlerimiz" data-en="Trainers">Antrenörlerimiz</a></li>
+                <li><a href="#galeri" data-tr="Galeri" data-en="Gallery">Galeri</a></li>
+                <li><a href="#sanal-tur" data-tr="Sanal Tur" data-en="Virtual Tour">Sanal Tur</a></li>
+                <li><a href="#yarismalar" data-tr="Yarışmalarımız" data-en="Competitions">Yarışmalarımız</a></li>
+                <li><a href="#sss" data-tr="S.S.S." data-en="FAQ">S.S.S.</a></li>
+                <li><a href="#kayit" data-tr="Ön Kayıt" data-en="Pre-Register">Ön Kayıt</a></li>
+                <li><a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
+
+            <div class="controls-container">
+                <button class="toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+                <button class="toggle-btn" id="lang-toggle" onclick="toggleLang()">
+                    <span id="lang-text">EN</span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <div class="hero">
         <img src="logo.jpg" alt="Gün Spor Kulübü Logo">
-        <h2>Hedefe Odaklan, Geleceğe İsabet Et!</h2>
-        <p>Sakarya Adapazarı'nda modern okçuluk sporunu profesyonel antrenörlerimiz eşliğinde keşfedin.</p>
-        <a href="#kayit" class="btn">Hemen Kayıt Ol</a>
+        <h2 data-tr="Hedefe Odaklan, Geleceğe İsabet Et!" data-en="Focus on the Target, Hit the Future!">Hedefe Odaklan, Geleceğe İsabet Et!</h2>
+        <p data-tr="Sakarya Adapazarı'nda modern okçuluk sporunu profesyonel antrenörlerimiz eşliğinde keşfedin." data-en="Discover modern archery in Sakarya Adapazarı accompanied by our professional coaches.">Sakarya Adapazarı'nda modern okçuluk sporunu profesyonel antrenörlerimiz eşliğinde keşfedin.</p>
+        <a href="#kayit" class="btn" data-tr="Hemen Kayıt Ol" data-en="Register Now">Hemen Kayıt Ol</a>
     </div>
 
     <section id="hakkimizda">
-        <h2 class="section-title">Hakkımızda</h2>
-        <p style="text-align: center; color: var(--text-muted);">
-            Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz.
+        <h2 class="section-title" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</h2>
+        <p style="text-align: center; color: var(--text-muted);" data-tr="Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz. Ayrıca sporcularımızın fiziksel sağlığını ve performansını destekleyici profesyonel masaj/rehabilitasyon desteği sunmaktayız." data-en="As Gün Sports Club, we provide service in Sakarya to make archery loved by people of all ages, and to raise disciplined, highly focused, and successful athletes. We also offer professional massage/rehabilitation support to enhance our athletes' physical health and performance.">
+            Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz. Ayrıca sporcularımızın fiziksel sağlığını ve performansını destekleyici profesyonel masaj/rehabilitasyon desteği sunmaktayız.
         </p>
     </section>
 
     <section id="antrenorler">
-        <h2 class="section-title">Antrenörlerimiz</h2>
+        <h2 class="section-title" data-tr="Antrenörlerimiz" data-en="Our Trainers">Antrenörlerimiz</h2>
         <div class="trainers-grid">
             
             <div class="trainer-card">
                 <img src="emre-gunduz.jpg" alt="Emre Gündüz" class="trainer-img">
                 <h3>Emre Gündüz</h3>
-                <div class="role">Baş Antrenör & Spor Masörü</div>
-                <p>Okçuluk teknikleri, profesyonel sporcu yetiştirme.</p>
+                <div class="role" data-tr="Baş Antrenör & Spor Masörü" data-en="Head Coach & Sports Masseur">Baş Antrenör & Spor Masörü</div>
+                <p data-tr="Okçuluk teknikleri, profesyonel sporcu yetiştirme ve sporcu sağlığı/masajı konularında uzman kadromuzun lideri." data-en="Leader of our expert team in archery techniques, professional athlete training, and athlete health/massage.">Okçuluk teknikleri, profesyonel sporcu yetiştirme ve sporcu sağlığı/masajı konularında uzman kadromuzun lideri.</p>
                 <p><i class="fa-solid fa-phone"></i> <a href="tel:05432653442">0543 265 34 42</a></p>
             </div>
 
             <div class="trainer-card">
                 <img src="beyzanur-gunduz.jpg" alt="Beyzanur Gündüz" class="trainer-img">
                 <h3>Beyzanur Gündüz</h3>
-                <div class="role">Antrenör</div>
-                <p>Temel okçuluk eğitimi, odaklanma teknikleri ve genç yeteneklerin keşfi uzmanı.</p>
+                <div class="role" data-tr="Antrenör" data-en="Trainer">Antrenör</div>
+                <p data-tr="Temel okçuluk eğitimi, odaklanma teknikleri ve genç yeteneklerin keşfi uzmanı." data-en="Expert in basic archery training, focus techniques, and talent discovery.">Temel okçuluk eğitimi, odaklanma teknikleri ve genç yeteneklerin keşfi uzmanı.</p>
                 <p><i class="fa-solid fa-phone"></i> <a href="tel:05534631096">0553 463 10 96</a></p>
             </div>
 
         </div>
     </section>
 
+    <section id="galeri">
+        <h2 class="section-title" data-tr="Kulübümüzden Kareler" data-en="Media Gallery">Kulübümüzden Kareler</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="galeri1.jpg" alt="Antrenman Alanı"></div>
+            <div class="gallery-item"><img src="galeri2.jpg" alt="Atış Anı"></div>
+            <div class="gallery-item"><img src="galeri3.jpg" alt="Ekipmanlar"></div>
+            <div class="gallery-item"><img src="galeri4.jpg" alt="Sporcularımız"></div>
+        </div>
+    </section>
+
+    <section id="sanal-tur">
+        <h2 class="section-title" data-tr="360° Salon Sanal Turu" data-en="360° Virtual Tour">360° Salon Sanal Turu</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 20px;" data-tr="Atış alanımızı ve tesisimizi interaktif olarak inceleyebilirsiniz." data-en="You can interactively inspect our shooting area and facilities.">
+            Atış alanımızı ve tesisimizi interaktif olarak inceleyebilirsiniz.
+        </p>
+        
+        <div class="virtual-tour-container">
+            <div id="panorama"></div>
+        </div>
+    </section>
+
     <section id="yarismalar">
-        <h2 class="section-title">Katıldığımız Yarışmalar & Dereceler</h2>
+        <h2 class="section-title" data-tr="Katıldığımız Yarışmalar & Dereceler" data-en="Competitions & Achievements">Katıldığımız Yarışmalar & Dereceler</h2>
         <div class="competitions-grid">
 
             <div class="comp-card">
@@ -562,81 +736,84 @@
     </section>
 
     <section id="sss">
-        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+        <h2 class="section-title" data-tr="Sıkça Sorulan Sorular" data-en="Frequently Asked Questions">Sıkça Sorulan Sorular</h2>
         
         <div class="faq-item">
-            <h3><i class="fa-solid fa-circle-question"></i> Okçuluk eğitimine kaç yaşında başlanabilir?</h3>
-            <p>Okçuluk sporuna genellikle 7-8 yaşından itibaren başlanabilir. Odaklanma becerisi ve fiziksel gelişime göre her yaş grubuna özel antrenman programı uygulanır.</p>
+            <h3 data-tr="Okçuluk eğitimine kaç yaşında başlanabilir?" data-en="At what age can archery training start?"><i class="fa-solid fa-circle-question"></i> Okçuluk eğitimine kaç yaşında başlanabilir?</h3>
+            <p data-tr="Okçuluk sporuna genellikle 7-8 yaşından itibaren başlanabilir. Odaklanma becerisi ve fiziksel gelişime göre her yaş grubuna özel antrenman programı uygulanır." data-en="Archery usually starts from age 7-8. A training program tailored to each age group is applied according to focusing skills and physical development.">Okçuluk sporuna genellikle 7-8 yaşından itibaren başlanabilir. Odaklanma becerisi ve fiziksel gelişime göre her yaş grubuna özel antrenman programı uygulanır.</p>
         </div>
 
         <div class="faq-item">
-            <h3><i class="fa-solid fa-circle-question"></i> Ekipmanları kendimiz mi almalıyız?</h3>
-            <p>Başlangıç aşamasında gerekli tüm yay, ok ve koruyucu ekipmanlar kulübümüz tarafından sağlanmaktadır.</p>
+            <h3 data-tr="Ekipmanları kendimiz mi almalıyız?" data-en="Do we need to buy our own equipment?"><i class="fa-solid fa-circle-question"></i> Ekipmanları kendimiz mi almalıyız?</h3>
+            <p data-tr="Başlangıç aşamasında gerekli tüm yay, ok ve koruyucu ekipmanlar kulübümüz tarafından sağlanmaktadır." data-en="All necessary bows, arrows, and protective gear at the beginner level are provided by our club.">Başlangıç aşamasında gerekli tüm yay, ok ve koruyucu ekipmanlar kulübümüz tarafından sağlanmaktadır.</p>
         </div>
 
-        
+        <div class="faq-item">
+            <h3 data-tr="Spor Masajı hizmetinden kimler yararlanabilir?" data-en="Who can benefit from Sports Massage service?"><i class="fa-solid fa-circle-question"></i> Spor Masajı hizmetinden kimler yararlanabilir?</h3>
+            <p data-tr="Baş Antrenörümüz & Spor Masörümüz Emre Gündüz eşliğinde sporcularımızın kas yorgunluklarını gidermek, sakatlıkları önlemek ve performansı artırmak için masaj desteği sunulmaktadır." data-en="Under the supervision of our Head Coach & Sports Masseur Emre Gündüz, massage support is offered to relieve muscle fatigue, prevent injuries, and improve performance.">Baş Antrenörümüz & Spor Masörümüz Emre Gündüz eşliğinde sporcularımızın kas yorgunluklarını gidermek, sakatlıkları önlemek ve performansı artırmak için masaj desteği sunulmaktadır.</p>
+        </div>
     </section>
 
     <section id="kayit">
-        <h2 class="section-title">Ön Kayıt Formu</h2>
+        <h2 class="section-title" data-tr="Ön Kayıt Formu" data-en="Pre-Registration Form">Ön Kayıt Formu</h2>
         <div class="form-container">
             <form action="#" method="POST">
                 <div class="form-group">
-                    <label for="ad-soyad">Adınız Soyadınız</label>
+                    <label for="ad-soyad" data-tr="Adınız Soyadınız" data-en="Full Name">Adınız Soyadınız</label>
                     <input type="text" id="ad-soyad" name="ad_soyad" placeholder="Örn: Ahmet Yılmaz" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="telefon">Telefon Numaranız</label>
+                    <label for="telefon" data-tr="Telefon Numaranız" data-en="Phone Number">Telefon Numaranız</label>
                     <input type="tel" id="telefon" name="telefon" placeholder="05XX XXX XX XX" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="yas">Yaşınız</label>
+                    <label for="yas" data-tr="Yaşınız" data-en="Age">Yaşınız</label>
                     <input type="number" id="yas" name="yas" placeholder="Örn: 15" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="seviye">Okçuluk Deneyiminiz</label>
+                    <label for="seviye" data-tr="Okçuluk Deneyiminiz" data-en="Archery Experience">Okçuluk Deneyiminiz</label>
                     <select id="seviye" name="seviye">
-                        <option value="baslangic">İlk Defa Başlayacağım (Başlangıç)</option>
-                        <option value="orta">Orta Seviye</option>
-                        <option value="ileri">İleri Seviye / Lisanslı Sporcu</option>
+                        <option value="baslangic" data-tr="İlk Defa Başlayacağım (Başlangıç)" data-en="Beginner">İlk Defa Başlayacağım (Başlangıç)</option>
+                        <option value="orta" data-tr="Orta Seviye" data-en="Intermediate">Orta Seviye</option>
+                        <option value="ileri" data-tr="İleri Seviye / Lisanslı Sporcu" data-en="Advanced / Licensed">İleri Seviye / Lisanslı Sporcu</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="mesaj">Not / Eklemek İstedikleriniz (Opsiyonel)</label>
-                    <textarea id="mesaj" name="mesaj" rows="4" placeholder="Sorularınız varsa belirtebilirsiniz..."></textarea>
+                    <label for="mesaj" data-tr="Not / Eklemek İstedikleriniz (Opsiyonel)" data-en="Notes / Questions (Optional)">Not / Eklemek İstedikleriniz (Opsiyonel)</label>
+                    <textarea id="mesaj" name="mesaj" rows="4" placeholder="..."></textarea>
                 </div>
 
                 <div style="text-align: center;">
-                    <button type="submit" class="btn" style="width: 100%;">Başvuruyu Gönder</button>
+                    <button type="submit" class="btn" style="width: 100%;" data-tr="Başvuruyu Gönder" data-en="Submit Application">Başvuruyu Gönder</button>
                 </div>
             </form>
         </div>
     </section>
 
     <section id="iletisim">
-        <h2 class="section-title">İletişim ve Konum</h2>
+        <h2 class="section-title" data-tr="İletişim ve Konum" data-en="Contact & Location">İletişim ve Konum</h2>
         <div class="grid-container">
             
             <div class="card">
                 <i class="fa-solid fa-location-dot"></i>
-                <h3>Adresimiz</h3>
+                <h3 data-tr="Adresimiz" data-en="Address">Adresimiz</h3>
                 <p style="white-space: normal;">Semerciler Mah. Çark Cd. No:63 Kat:3<br>Adapazarı / Sakarya</p>
             </div>
 
             <div class="card">
                 <i class="fa-solid fa-phone"></i>
-                <h3>Bize Ulaşın</h3>
+                <h3 data-tr="Bize Ulaşın" data-en="Call Us">Bize Ulaşın</h3>
                 <p><strong>Emre Gündüz:</strong> <a href="tel:05432653442">0543 265 34 42</a></p>
                 <p><strong>Beyzanur Gündüz:</strong> <a href="tel:05534631096">0553 463 10 96</a></p>
             </div>
 
             <div class="card">
                 <i class="fa-solid fa-envelope"></i>
-                <h3>E-posta</h3>
+                <h3 data-tr="E-posta" data-en="E-mail">E-posta</h3>
                 <p><a href="mailto:gunspor54@gmail.com">gunspor54@gmail.com</a></p>
             </div>
 
@@ -646,7 +823,26 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.657805216393!2d30.3980!3d40.7730!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ2JzIyLjgiTiAzMMKwMjMnNTI4IkU!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <h3 style="text-align: center; margin-top: 40px; color: var(--gold);">Sosyal Medyada Bizi Takip Edin</h3>
+        <h3 style="text-align: center; margin-top: 40px; color: var(--gold);" data-tr="Instagram Paylaşımlarımız" data-en="Latest Instagram Posts">Instagram Paylaşımlarımız</h3>
+        <div class="social-feed-grid">
+            <div class="social-post">
+                <img src="insta1.jpg" alt="Instagram Paylaşımı 1">
+                <a href="https://www.instagram.com/gun.sporklubu" target="_blank" class="overlay"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="social-post">
+                <img src="insta2.jpg" alt="Instagram Paylaşımı 2">
+                <a href="https://www.instagram.com/gun.sporklubu" target="_blank" class="overlay"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="social-post">
+                <img src="insta3.jpg" alt="Instagram Paylaşımı 3">
+                <a href="https://www.instagram.com/gun.sporklubu" target="_blank" class="overlay"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="social-post">
+                <img src="insta4.jpg" alt="Instagram Paylaşımı 4">
+                <a href="https://www.instagram.com/gun.sporklubu" target="_blank" class="overlay"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
         <div class="social-links">
             <a href="https://www.instagram.com/gun.sporklubu" target="_blank" class="social-btn">
                 <i class="fa-brands fa-instagram"></i> Instagram
@@ -662,8 +858,45 @@
     </a>
 
     <footer>
-        <p>&copy; 2026 Gün Spor Kulübü. Tüm hakkı saklıdır.</p>
+        <p>© 2026 Gün Spor Kulübü. Tüm hakkı saklıdır.</p>
     </footer>
+
+    <script>
+        // Tema Değiştirme (Dark / Light)
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const themeIcon = document.getElementById('theme-icon');
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Dil Değiştirme (TR / EN)
+        let currentLang = 'tr';
+        function toggleLang() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            document.getElementById('lang-text').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+
+            const elements = document.querySelectorAll('[data-tr]');
+            elements.forEach(el => {
+                el.innerText = el.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        // 360 Sanal Tur Başlatıcı
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "salon-360.jpg",
+            "autoLoad": true,
+            "autoRotate": -2,
+            "compass": false,
+            "showZoomCtrl": true
+        });
+    </script>
 
 </body>
 </html>
