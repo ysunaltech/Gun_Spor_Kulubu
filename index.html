@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gün Spor Kulübü | Sakarya Okçuluk Eğitimi & Antrenman</title>
-    <meta name="description" content="Sakarya Adapazarı'nda profesyonel okçuluk eğitimi ve spor masajı hizmeti. Gün Spor Kulübü ile okçuluk sporunu keşfedin.">
-    <meta name="keywords" content="Gün Spor Kulübü, Sakarya Okçuluk, Adapazarı Okçuluk, Okçuluk Kursu, Emre Gündüz, Beyzanur Gündüz, Spor Masörü Sakarya">
+    <meta name="description" content="Sakarya Adapazarı'nda profesyonel okçuluk eğitimi. Gün Spor Kulübü ile okçuluk sporunu keşfedin.">
+    <meta name="keywords" content="Gün Spor Kulübü, Sakarya Okçuluk, Adapazarı Okçuluk, Okçuluk Kursu, Emre Gündüz, Beyzanur Gündüz">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -529,6 +529,74 @@
             font-weight: 600;
         }
 
+        /* Çerez Bildirimi Stilleri */
+        .cookie-banner {
+            position: fixed;
+            bottom: -300px;
+            left: 20px;
+            right: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .cookie-banner.show {
+            bottom: 20px;
+            opacity: 1;
+        }
+
+        .cookie-banner p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .cookie-btn {
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .accept-btn {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        .accept-btn:hover {
+            background-color: var(--gold-hover);
+        }
+
+        .decline-btn {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .decline-btn:hover {
+            color: var(--text-color);
+            border-color: var(--text-color);
+        }
+
         /* WhatsApp Sabit Butonu */
         .whatsapp-float {
             position: fixed;
@@ -607,6 +675,12 @@
             .virtual-tour-container {
                 height: 300px;
             }
+
+            .cookie-banner {
+                left: 10px;
+                right: 10px;
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -649,8 +723,8 @@
 
     <section id="hakkimizda">
         <h2 class="section-title" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</h2>
-        <p style="text-align: center; color: var(--text-muted);" data-tr="Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz. Ayrıca sporcularımızın fiziksel sağlığını ve performansını destekleyici profesyonel masaj/rehabilitasyon desteği sunmaktayız." data-en="As Gün Sports Club, we provide service in Sakarya to make archery loved by people of all ages, and to raise disciplined, highly focused, and successful athletes. We also offer professional massage/rehabilitation support to enhance our athletes' physical health and performance.">
-            Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz. Ayrıca sporcularımızın fiziksel sağlığını ve performansını destekleyici profesyonel masaj/rehabilitasyon desteği sunmaktayız.
+        <p style="text-align: center; color: var(--text-muted);" data-tr="Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz." data-en="As Gün Sports Club, we provide service in Sakarya to make archery loved by people of all ages, and to raise disciplined, highly focused, and successful athletes.">
+            Gün Spor Kulübü olarak, okçuluk sporunu her yaştan bireye sevdirmek, disiplinli, odaklanma becerisi yüksek ve başarılı sporcular yetiştirmek amacıyla Sakarya'da hizmet vermekteyiz.
         </p>
     </section>
 
@@ -661,8 +735,8 @@
             <div class="trainer-card">
                 <img src="emre-gunduz.jpg" alt="Emre Gündüz" class="trainer-img">
                 <h3>Emre Gündüz</h3>
-                <div class="role" data-tr="Baş Antrenör & Spor Masörü" data-en="Head Coach & Sports Masseur">Baş Antrenör & Spor Masörü</div>
-                <p data-tr="Okçuluk teknikleri, profesyonel sporcu yetiştirme ve sporcu sağlığı/masajı konularında uzman kadromuzun lideri." data-en="Leader of our expert team in archery techniques, professional athlete training, and athlete health/massage.">Okçuluk teknikleri, profesyonel sporcu yetiştirme ve sporcu sağlığı/masajı konularında uzman kadromuzun lideri.</p>
+                <div class="role" data-tr="Baş Antrenör" data-en="Head Coach">Baş Antrenör</div>
+                <p data-tr="Okçuluk teknikleri, profesyonel sporcu yetiştirme ve performans geliştirme konularında uzman kadromuzun lideri." data-en="Leader of our expert team in archery techniques, professional athlete training, and performance improvement.">Okçuluk teknikleri, profesyonel sporcu yetiştirme ve performans geliştirme konularında uzman kadromuzun lideri.</p>
                 <p><i class="fa-solid fa-phone"></i> <a href="tel:05432653442">0543 265 34 42</a></p>
             </div>
 
@@ -749,8 +823,8 @@
         </div>
 
         <div class="faq-item">
-            <h3 data-tr="Spor Masajı hizmetinden kimler yararlanabilir?" data-en="Who can benefit from Sports Massage service?"><i class="fa-solid fa-circle-question"></i> Spor Masajı hizmetinden kimler yararlanabilir?</h3>
-            <p data-tr="Baş Antrenörümüz & Spor Masörümüz Emre Gündüz eşliğinde sporcularımızın kas yorgunluklarını gidermek, sakatlıkları önlemek ve performansı artırmak için masaj desteği sunulmaktadır." data-en="Under the supervision of our Head Coach & Sports Masseur Emre Gündüz, massage support is offered to relieve muscle fatigue, prevent injuries, and improve performance.">Baş Antrenörümüz & Spor Masörümüz Emre Gündüz eşliğinde sporcularımızın kas yorgunluklarını gidermek, sakatlıkları önlemek ve performansı artırmak için masaj desteği sunulmaktadır.</p>
+            <h3 data-tr="Ders saatleri ve antrenman günleri nasıl belirleniyor?" data-en="How are class hours and training days set?"><i class="fa-solid fa-circle-question"></i> Ders saatleri ve antrenman günleri nasıl belirleniyor?</h3>
+            <p data-tr="Sporcunun yaş grubuna, okul/iş durumuna ve seviyesine göre haftalık antrenman programları antrenörlerimiz tarafından özel olarak planlanmaktadır." data-en="Weekly training schedules are specially planned by our coaches according to the athlete's age group, school/work status, and skill level.">Sporcunun yaş grubuna, okul/iş durumuna ve seviyesine göre haftalık antrenman programları antrenörlerimiz tarafından özel olarak planlanmaktadır.</p>
         </div>
     </section>
 
@@ -853,6 +927,16 @@
         </div>
     </section>
 
+    <div id="cookie-banner" class="cookie-banner">
+        <p data-tr="Sitemizde kullanıcı deneyimini artırmak ve analiz yapmak amacıyla çerezler kullanılmaktadır." data-en="We use cookies to improve user experience and analyze traffic on our website.">
+            Sitemizde kullanıcı deneyimini artırmak ve analiz yapmak amacıyla çerezler kullanılmaktadır.
+        </p>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()" class="cookie-btn accept-btn" data-tr="Kabul Et" data-en="Accept">Kabul Et</button>
+            <button onclick="declineCookies()" class="cookie-btn decline-btn" data-tr="Reddet" data-en="Decline">Reddet</button>
+        </div>
+    </div>
+
     <a href="https://wa.me/905432653442?text=Merhaba,%20okçuluk%20kursu%20hakkında%20bilgi%20almak%20istiyorum." class="whatsapp-float" target="_blank" title="WhatsApp İle İletişime Geçin">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -896,6 +980,33 @@
             "compass": false,
             "showZoomCtrl": true
         });
+
+        // Çerez Kontrol Mantığı
+        window.addEventListener('load', function() {
+            if (!localStorage.getItem('cookiePreference')) {
+                setTimeout(function() {
+                    document.getElementById('cookie-banner').classList.add('show');
+                }, 1000);
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookiePreference', 'accepted');
+            hideCookieBanner();
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiePreference', 'declined');
+            hideCookieBanner();
+        }
+
+        function hideCookieBanner() {
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.remove('show');
+            setTimeout(function() {
+                banner.style.display = 'none';
+            }, 500); // Kapanış animasyonu bittikten sonra tamamen kaldırır
+        }
     </script>
 
 </body>
