@@ -830,7 +830,7 @@
     <section id="kayit">
         <h2 class="section-title" data-tr="Ön Kayıt Formu" data-en="Pre-Registration Form">Ön Kayıt Formu</h2>
         <div class="form-container">
-            <form action="#" method="POST">
+            <form id="kayitFormu">
                 <div class="form-group">
                     <label for="ad-soyad" data-tr="Adınız Soyadınız" data-en="Full Name">Adınız Soyadınız</label>
                     <input type="text" id="ad-soyad" name="ad_soyad" placeholder="Örn: Ahmet Yılmaz" required>
@@ -849,9 +849,9 @@
                 <div class="form-group">
                     <label for="seviye" data-tr="Okçuluk Deneyiminiz" data-en="Archery Experience">Okçuluk Deneyiminiz</label>
                     <select id="seviye" name="seviye">
-                        <option value="baslangic" data-tr="İlk Defa Başlayacağım (Başlangıç)" data-en="Beginner">İlk Defa Başlayacağım (Başlangıç)</option>
-                        <option value="orta" data-tr="Orta Seviye" data-en="Intermediate">Orta Seviye</option>
-                        <option value="ileri" data-tr="İleri Seviye / Lisanslı Sporcu" data-en="Advanced / Licensed">İleri Seviye / Lisanslı Sporcu</option>
+                        <option value="İlk Defa Başlayacağım (Başlangıç)" data-tr="İlk Defa Başlayacağım (Başlangıç)" data-en="Beginner">İlk Defa Başlayacağım (Başlangıç)</option>
+                        <option value="Orta Seviye" data-tr="Orta Seviye" data-en="Intermediate">Orta Seviye</option>
+                        <option value="İleri Seviye / Lisanslı Sporcu" data-tr="İleri Seviye / Lisanslı Sporcu" data-en="Advanced / Licensed">İleri Seviye / Lisanslı Sporcu</option>
                     </select>
                 </div>
 
@@ -861,8 +861,10 @@
                 </div>
 
                 <div style="text-align: center;">
-                    <button type="submit" class="btn" style="width: 100%;" data-tr="Başvuruyu Gönder" data-en="Submit Application">Başvuruyu Gönder</button>
+                    <button type="submit" id="submitBtn" class="btn" style="width: 100%;" data-tr="Başvuruyu Gönder" data-en="Submit Application">Başvuruyu Gönder</button>
                 </div>
+
+                <div id="formMesaj" style="margin-top: 15px; text-align: center; font-weight: 600; display: none;"></div>
             </form>
         </div>
     </section>
@@ -1004,8 +1006,48 @@
             banner.classList.remove('show');
             setTimeout(function() {
                 banner.style.display = 'none';
-            }, 500); // Kapanış animasyonu bittikten sonra tamamen kaldırır
+            }, 500);
         }
+
+        // --- GOOGLE APPS SCRIPT FORM ENTEGRASYONU ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyrD-hc_L04XNcikk-RMcshOQ7WeagJ6dZF1wrNbwCDogbphAZJQm_DZrcYvalxtj3u/exec';
+        const form = document.getElementById('kayitFormu');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMesaj = document.getElementById('formMesaj');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Butonu pasif hale getir
+            submitBtn.disabled = true;
+            submitBtn.innerText = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+
+            const formData = new FormData(form);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    formMesaj.style.display = 'block';
+                    formMesaj.style.color = 'var(--gold)';
+                    formMesaj.innerText = currentLang === 'tr' 
+                        ? 'Başvurunuz başarıyla alındı! En kısa sürede sizinle iletişime geçeceğiz.' 
+                        : 'Your application has been received! We will contact you soon.';
+                    
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = currentLang === 'tr' ? 'Başvuruyu Gönder' : 'Submit Application';
+                })
+                .catch(error => {
+                    console.error('Hata!', error.message);
+                    formMesaj.style.display = 'block';
+                    formMesaj.style.color = '#ff4d4d';
+                    formMesaj.innerText = currentLang === 'tr' 
+                        ? 'Bir hata oluştu. Lütfen tekrar deneyiniz veya WhatsApp üzerinden ulaşınız.' 
+                        : 'An error occurred. Please try again or contact via WhatsApp.';
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = currentLang === 'tr' ? 'Başvuruyu Gönder' : 'Submit Application';
+                });
+        });
     </script>
 
 </body>
